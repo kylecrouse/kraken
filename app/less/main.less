@@ -1,0 +1,44 @@
+// Vendor Imports
+// --------------
+
+// Bootstrap
+@import "bootstrap/less/bootstrap.less";
+
+
+// Local Imports
+// -------------
+
+// Variables
+@import "variables.less";
+
+
+// Local Rules
+// -----------
+
+ul {
+  border-top: 1px solid @gray-lighter;
+  padding: 0;
+}
+li {
+  border-bottom: 1px solid @gray-lighter;
+  list-style: none;
+  a {
+    display: block;
+    padding: 10px 20px;
+  }
+}
+small {
+  .text-muted;
+  .pull-right;
+  line-height: @line-height-computed;
+}
+.btn {
+  bottom: 20px;
+  position: absolute;
+  &:not(.pull-right) {
+    left: 20px;
+  }
+  &.pull-right {
+    right: 20px;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="row">
+  <h4 class="text-center">An App to be Named <i>Later</i> 🍺</h4>
+  <ul>
+    <li ng-repeat="trip in trips">
+      <a href="#/trip/{{trip.id}}">{{trip.name}} <small>{{trip.date}}</small></a>
+    </li>
+  </ul>
+  <button class="btn btn-default">Endorse a Place</button>
+  <button class="btn btn-default pull-right">Plan a Trip</button>
+</div>

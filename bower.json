@@ -1,0 +1,15 @@
+{
+  "name": "indigitus",
+  "version": "0.0.3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "~1.0.8",
+    "bootstrap": "~3.0.0",
+    "jquery": "~1.10.0"
+  }
+}

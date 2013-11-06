@@ -1,0 +1,28 @@
+[{
+  "id": 0,
+  "name": "Kyiv",
+  "date": "August 2013"
+}, {
+  "id": 1,
+  "name": "Tulum",
+  "date": "March 2013",
+  "places": [{
+    "name": "Coco Tulum"
+  }, {
+    "name": "Hartwood"
+  }, {
+    "name": "El Caméo"
+  }, {
+    "name": "Matéo's"
+  }, {
+    "name": "Coba ruins"
+  }]
+}, {
+  "id": 2,
+  "name": "Italy",
+  "date": "Summer 2012"
+}, {
+  "id": 3,
+  "name": "Road Trip",
+  "date": "2012"
+}]

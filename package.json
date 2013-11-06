@@ -1,0 +1,20 @@
+{
+  "name": "kraken",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-connect": "~0.5.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-less": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.1"
+  },
+  "main": "web/app",
+  "engines": {
+    "node": ">=0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kylecrouse/kraken.git"
+  }
+}
