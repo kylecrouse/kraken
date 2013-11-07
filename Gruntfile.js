@@ -18,6 +18,13 @@ module.exports = function(grunt) {
           ]
         }
       }
+      heroku: {
+        options: {
+          base: [
+            'app'
+          ]
+        }
+      }
     },
     jshint: {
       options: {
@@ -74,11 +81,16 @@ module.exports = function(grunt) {
     'less'
   ]);
 
-  // Start a web server and watch for changes.
+  // Start a web server.
   grunt.registerTask('server', [
     'default',
     'connect:livereload',
     'watch'
   ]);
 
+  // Start a web server and watch for changes.
+  grunt.registerTask('heroku', [
+    'default',
+    'connect:heroku'
+  ]);
 };
