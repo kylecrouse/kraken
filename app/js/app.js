@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('krakenApp', [])
+angular.module('krakenApp', [
+    'ngRoute'
+  ])
   .config(['$routeProvider', function krakenApp($routeProvider) {
     $routeProvider
       .when('/', {
