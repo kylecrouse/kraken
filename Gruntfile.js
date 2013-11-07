@@ -17,12 +17,14 @@ module.exports = function(grunt) {
             'app'
           ]
         }
-      }
+      },
       heroku: {
         options: {
           base: [
             'app'
-          ]
+          ],
+          keepalive: true,
+          livereload: false
         }
       }
     },
