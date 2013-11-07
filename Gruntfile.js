@@ -24,7 +24,8 @@ module.exports = function(grunt) {
             'app'
           ],
           keepalive: true,
-          livereload: false
+          livereload: false,
+          port: '?'
         }
       }
     },
