@@ -7,7 +7,7 @@ var https = require('https');
 
 var options = {
   protocol: 'http',
-  port: 8000,
+  port: process.env.PORT || 8000,
   hostname: 'localhost',
   base: './app',
   directory: null,
