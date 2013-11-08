@@ -8,7 +8,7 @@ var https = require('https');
 var options = {
   protocol: 'http',
   port: process.env.PORT || 8000,
-  hostname: 'localhost',
+  hostname: '*',
   base: './app',
   directory: null,
   middleware: function(connect, options) {
