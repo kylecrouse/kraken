@@ -6027,14 +6027,14 @@ small {
   float: right !important;
   line-height: 20px;
 }
-.btn {
+.btn-default {
   bottom: 20px;
   position: absolute;
 }
-.btn:not(.pull-right) {
+.btn-default:not(.pull-right) {
   left: 20px;
 }
-.btn.pull-right {
+.btn-default.pull-right {
   right: 20px;
 }
 .back {

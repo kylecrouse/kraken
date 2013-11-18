@@ -3,7 +3,7 @@
   <h4 class="text-center">{{trip.name}}</h4>
   <ul>
     <li ng-repeat="place in trip.places">
-      <a href="#">{{place.name}}</a>
+      <a href="#/place/{{place.id}}">{{place.name}}</a>
     </li>
   </ul>
   <button class="btn btn-default">Endorse a Place</button>
