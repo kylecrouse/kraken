@@ -6043,3 +6043,8 @@ small {
   position: absolute;
   top: 10px;
 }
+.form {
+  border-top: 1px solid #eeeeee;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
