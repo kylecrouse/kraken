@@ -10,7 +10,7 @@
     </div>
   </div>
   <ul>
-    <li ng-repeat="venue in venues">
+    <li class="venue" ng-repeat="venue in venues">
       <a href="#"><img alt="{{venue.categories.0.name}}" ng-src="{{venue.categories.0.icon.prefix}}32{{venue.categories.0.icon.suffix}}">{{venue.name}}<br><small class="text-muted">{{venue.location.address}}</small></a>
     </li>
   </ul>
