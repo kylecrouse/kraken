@@ -2,7 +2,7 @@
   <h4 class="text-center">An App to be Named <i>Later</i> 🍺</h4>
   <ul>
     <li ng-repeat="trip in trips">
-      <a href="#/trip/{{trip.id}}">{{trip.name}} <small>{{trip.date}}</small></a>
+      <a href="#/trip/{{trip.id}}">{{trip.name}}<span class="text-muted pull-right">{{trip.date}}</span></a>
     </li>
   </ul>
   <a href="#/search" class="btn btn-default">Endorse a Place</a>
