@@ -4,18 +4,13 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    connect: {
+    express: {
       options: {
-        port: 9000,
-        hostname: 'localhost',
-        livereload: 35729
+        port: 9000
       },
-      livereload: {
+      dev: {
         options: {
-          open: true,
-          base: [
-            'app'
-          ]
+          script: 'web/app.js'
         }
       }
     },
@@ -23,7 +18,10 @@ module.exports = function(grunt) {
       options: {
         jshintrc: '.jshintrc'
       },
-      files: ['app/js/*.js']
+      files: [
+        'app/js/*.js',
+        'web/*.js'
+      ]
     },
     less: {
       dev: {
@@ -40,6 +38,13 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      express: {
+        files: ['web/*.js'],
+        tasks: ['express:dev'],
+        options: {
+          nospawn: true
+        }
+      },
       less: {
         files: ['app/less/**'],
         tasks: ['less']
@@ -50,23 +55,24 @@ module.exports = function(grunt) {
       },
       livereload: {
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          livereload: 35729
         },
         files: [
           'app/{,*/}*.html',
           'app/css/{,*/}*.css',
           'app/js/{,*/}*.js',
-          'app/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          'app/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          'web/*.js'
         ]
       }
     }
   });
 
   // Load grunt tasks from NPM.
-  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-express-server');
 
   // Compile LESS and JS assets for site environments.
   grunt.registerTask('default', [
@@ -77,7 +83,7 @@ module.exports = function(grunt) {
   // Start a web server and watch for changes.
   grunt.registerTask('server', [
     'default',
-    'connect:livereload',
+    'express:dev',
     'watch'
   ]);
 
