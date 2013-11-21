@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "express": "~3.4.4",
-    "q-mongodb": "~0.0.1"
+    "express": "latest",
+    "q-mongodb": "git://github.com/fizker/QMongoDB.git"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
