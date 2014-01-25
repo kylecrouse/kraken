@@ -13,7 +13,7 @@ angular.module('mean').config(['$routeProvider',
         when('/trips/:tripId/edit', {
             templateUrl: 'views/trips/edit.html'
         }).
-        when('/trips/:tripsId', {
+        when('/trips/:tripId', {
             templateUrl: 'views/trips/view.html'
         }).
         when('/', {
