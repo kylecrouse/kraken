@@ -1,90 +1,100 @@
-var path = require('path');
+'use strict';
 
 module.exports = function(grunt) {
-
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    express: {
-      options: {
-        port: 9000
-      },
-      dev: {
-        options: {
-          script: 'web/app.js'
-        }
-      }
-    },
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc'
-      },
-      files: [
-        'app/js/*.js',
-        'web/*.js'
-      ]
-    },
-    less: {
-      dev: {
-        options: {
-          paths: ['app/less/', 'app/bower_components/']
+    // Project Configuration
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        watch: {
+            jade: {
+                files: ['app/views/**'],
+                options: {
+                    livereload: true,
+                },
+            },
+            js: {
+                files: ['gruntfile.js', 'server.js', 'app/**/*.js', 'public/js/**', 'test/**/*.js'],
+                tasks: ['jshint'],
+                options: {
+                    livereload: true,
+                },
+            },
+            html: {
+                files: ['public/views/**'],
+                options: {
+                    livereload: true,
+                },
+            },
+            css: {
+                files: ['public/css/**'],
+                options: {
+                    livereload: true
+                }
+            }
         },
-        files: [{
-          expand: true,
-          cwd: 'app/less/',
-          src: ['main.less'],
-          ext: '.css',
-          dest: 'app/css/'
-        }]
-      }
-    },
-    watch: {
-      express: {
-        files: ['web/*.js'],
-        tasks: ['express:dev'],
-        options: {
-          nospawn: true
-        }
-      },
-      less: {
-        files: ['app/less/**'],
-        tasks: ['less']
-      },
-      scripts: {
-        files: ['app/js/**'],
-        tasks: ['jshint']
-      },
-      livereload: {
-        options: {
-          livereload: 35729
+        jshint: {
+            all: {
+                src: ['gruntfile.js', 'server.js', 'app/**/*.js', 'public/js/**', 'test/**/*.js'],
+                options: {
+                    jshintrc: true
+                }
+            }
         },
-        files: [
-          'app/{,*/}*.html',
-          'app/css/{,*/}*.css',
-          'app/js/{,*/}*.js',
-          'app/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          'web/*.js'
-        ]
-      }
-    }
-  });
+        nodemon: {
+            dev: {
+                options: {
+                    file: 'server.js',
+                    args: [],
+                    ignoredFiles: ['public/**'],
+                    watchedExtensions: ['js'],
+                    nodeArgs: ['--debug'],
+                    delayTime: 1,
+                    env: {
+                        PORT: 3000
+                    },
+                    cwd: __dirname
+                }
+            }
+        },
+        concurrent: {
+            tasks: ['nodemon', 'watch'],
+            options: {
+                logConcurrentOutput: true
+            }
+        },
+        mochaTest: {
+            options: {
+                reporter: 'spec',
+                require: 'server.js'
+            },
+            src: ['test/mocha/**/*.js']
+        },
+        env: {
+            test: {
+                NODE_ENV: 'test'
+            }
+        },
+        karma: {
+            unit: {
+                configFile: 'test/karma/karma.conf.js'
+            }
+        }
+    });
 
-  // Load grunt tasks from NPM.
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-express-server');
+    //Load NPM tasks 
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-nodemon');
+    grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-env');
 
-  // Compile LESS and JS assets for site environments.
-  grunt.registerTask('default', [
-    'jshint',
-    'less'
-  ]);
+    //Making grunt default to force in order not to break the project.
+    grunt.option('force', true);
 
-  // Start a web server and watch for changes.
-  grunt.registerTask('server', [
-    'default',
-    'express:dev',
-    'watch'
-  ]);
+    //Default task(s).
+    grunt.registerTask('default', ['jshint', 'concurrent']);
 
+    //Test task.
+    grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
 };

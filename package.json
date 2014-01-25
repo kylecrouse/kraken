@@ -1,24 +1,80 @@
 {
-  "name": "kraken",
-  "version": "0.0.0",
-  "private": true,
-  "dependencies": {
-    "express": "latest",
-    "q-mongodb": "git://github.com/fizker/QMongoDB.git"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.3",
-    "grunt-contrib-less": "~0.7.0",
-    "grunt-contrib-watch": "~0.5.1",
-    "grunt-express-server": "~0.4.5"
-  },
-  "main": "web/app",
-  "engines": {
-    "node": ">=0.8"
-  },
+  "name": "mean",
+  "description": "MEAN - A Modern Stack: MongoDB, ExpressJS, AngularJS, NodeJS. (BONUS: Passport User Support).",
+  "version": "0.1.2",
+  "private": false,
+  "author": "Amos Haviv",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kylecrouse/kraken.git"
+    "url": "https://github.com/linnovate/mean.git"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.3.x"
+  },
+  "scripts": {
+    "start": "node node_modules/grunt-cli/bin/grunt",
+    "test": "node node_modules/grunt-cli/bin/grunt test",
+    "postinstall": "node node_modules/bower/bin/bower install"
+  },
+  "dependencies": {
+    "express": "~3.4.7",
+    "express3-handlebars": "~0.5.0",
+    "mongoose": "~3.8.3",
+    "connect-mongo": "~0.4.0",
+    "connect-flash": "~0.1.1",
+    "crypto": "0.0.3",
+    "passport": "~0.1.18",
+    "passport-local": "~0.1.6",
+    "passport-facebook": "~1.0.2",
+    "passport-twitter": "~1.0.2",
+    "passport-github": "~0.1.5",
+    "passport-google-oauth": "~0.1.5",
+    "lodash": "~2.4.1",
+    "view-helpers": "~0.1.4",
+    "mean-logger": "0.0.1",
+    "bower": "~1.2.8",
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.11",
+    "grunt-env": "~0.4.1",
+    "forever": "~0.10.11",
+    "karma-script-launcher": "~0.1.0",
+    "karma-chrome-launcher": "~0.1.2",
+    "karma-firefox-launcher": "~0.1.3",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-jasmine": "~0.1.5",
+    "karma-requirejs": "~0.1.0",
+    "should": "2.1.1",
+    "grunt-concurrent": "~0.4.2",
+    "grunt-karma": "~0.6.2",
+    "karma-coffee-preprocessor": "~0.1.2",
+    "supertest": "0.8.2",
+    "karma-phantomjs-launcher": "~0.1.1",
+    "grunt-mocha-test": "~0.8.1",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-nodemon": "0.1.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "karma-coverage": "~0.1.4",
+    "karma": "~0.10.9"
+  },
+  "devDependencies": {
+    "supertest": "0.8.2",
+    "should": "2.1.1",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-nodemon": "0.1.2",
+    "grunt-concurrent": "latest",
+    "grunt-mocha-test": "latest",
+    "karma-script-launcher": "~0.1.0",
+    "karma-chrome-launcher": "~0.1.0",
+    "karma-firefox-launcher": "~0.1.0",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-jasmine": "~0.1.3",
+    "karma-requirejs": "~0.1.0",
+    "karma-coffee-preprocessor": "~0.1.0",
+    "karma-phantomjs-launcher": "~0.1.0",
+    "karma": "~0.10.4",
+    "grunt-karma": "~0.6.2",
+    "karma-coverage": "~0.1.0"
   }
 }
