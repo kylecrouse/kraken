@@ -1,0 +1,14 @@
+<section data-ng-controller="TripsController" data-ng-init="findOne()">
+    <span>{{trip.created | date:'medium'}}</span>/
+    <span>{{trip.user.name}}</span>
+    <h2>{{trip.title}}</h2>
+    <div data-ng-show="global.user._id == trip.user._id">
+        <a class="btn" href="/#!/trips/{{trip._id}}/edit">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a> 
+        <a class="btn" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+    <div>{{trip.content}}</div>
+</section>
