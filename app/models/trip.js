@@ -25,6 +25,9 @@ var TripSchema = new Schema({
         default: '',
         trim: true
     },
+    venues: {
+        type: Array
+    },
     user: {
         type: Schema.ObjectId,
         ref: 'User'

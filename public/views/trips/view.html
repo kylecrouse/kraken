@@ -1,14 +1,25 @@
 <section data-ng-controller="TripsController" data-ng-init="findOne()">
-    <span>{{trip.created | date:'medium'}}</span>/
-    <span>{{trip.user.name}}</span>
-    <h2>{{trip.title}}</h2>
-    <div data-ng-show="global.user._id == trip.user._id">
-        <a class="btn" href="/#!/trips/{{trip._id}}/edit">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a> 
-        <a class="btn" data-ng-click="remove();">
-            <i class="glyphicon glyphicon-trash"></i>
-        </a>
+  <h2>{{trip.title}}
+    <span data-ng-show="global.user._id == trip.user._id">
+      <a class="btn" href="/#!/trips/{{trip._id}}/edit"><i class="glyphicon glyphicon-edit"></i></a> 
+      <a class="btn" data-ng-click="remove();"><i class="glyphicon glyphicon-trash"></i></a>
+    </span>
+  </h2>
+  <p>{{trip.user.name}}</p>
+  <ul>
+    <li ng-repeat="venue in trip.venues">{{venue.name}}</li>
+  </ul>
+  <form class="form-horizontal col-md-6" role="form" data-ng-submit="search()">
+    <div class="form-group">
+      <div class="input-group">
+        <input type="text" class="form-control" data-ng-model="query" id="query" placeholder="Add a new place" required>
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default">Search</button>
+        </span>
+      </div>
     </div>
-    <div>{{trip.content}}</div>
+  </form>
+  <ul class="venues col-md-6">
+    <li ng-repeat="venue in search.venues" ng-click="add(venue)">{{venue.name}}</li>
+  </ul>
 </section>

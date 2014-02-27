@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.trips').controller('TripsController', ['$scope', '$routeParams', '$location', 'Global', 'Trips', function ($scope, $routeParams, $location, Global, Trips) {
+angular.module('mean.trips').controller('TripsController', ['$scope', '$routeParams', '$location', 'Global', 'Trips', 'Geo', 'thFoursquare', function ($scope, $routeParams, $location, Global, Trips, Geo, thFoursquare) {
     $scope.global = Global;
 
     $scope.create = function() {
@@ -56,5 +56,21 @@ angular.module('mean.trips').controller('TripsController', ['$scope', '$routePar
         }, function(trip) {
             $scope.trip = trip;
         });
+    };
+
+    $scope.search = function() {
+        var query = this.query;
+        Geo.locate().then(function (position) {
+            $scope.search = thFoursquare.api.venues.search({ ll: position.coords.latitude + ',' + position.coords.longitude, limit: 10, query: query });
+        });
+    };
+
+    $scope.add = function(venue) {
+        var trip = $scope.trip;
+        if (!trip.venues) {
+            trip.venues = [];
+        }
+        trip.venues.push(venue);
+        $scope.update();
     };
 }]);
