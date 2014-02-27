@@ -20,6 +20,6 @@
     </div>
   </form>
   <ul class="venues col-md-6">
-    <li ng-repeat="venue in search.venues" ng-click="add(venue)">{{venue.name}}</li>
+    <li ng-repeat="venue in search.venues" ng-click="add(venue)">{{venue.name}} <small style="float: right; line-height: 20px;">{{venue.location.city}}</small></li>
   </ul>
 </section>

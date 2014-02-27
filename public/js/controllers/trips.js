@@ -61,7 +61,7 @@ angular.module('mean.trips').controller('TripsController', ['$scope', '$routePar
     $scope.search = function() {
         var query = this.query;
         Geo.locate().then(function (position) {
-            $scope.search = thFoursquare.api.venues.search({ ll: position.coords.latitude + ',' + position.coords.longitude, limit: 10, query: query });
+            $scope.search = thFoursquare.api.venues.search({ ll: position.coords.latitude + ',' + position.coords.longitude, limit: 10, query: query, intent: 'global' });
         });
     };
 
