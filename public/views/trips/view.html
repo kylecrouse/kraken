@@ -9,7 +9,7 @@
   <ul>
     <li ng-repeat="venue in trip.venues">{{venue.name}}</li>
   </ul>
-  <form class="form-horizontal col-md-6" role="form" data-ng-submit="search()">
+  <form class="form-horizontal col-md-6" role="form" data-ng-submit="search()" data-ng-show="global.user._id == trip.user._id">
     <div class="form-group">
       <div class="input-group">
         <input type="text" class="form-control" data-ng-model="query" id="query" placeholder="Add a new place" required>
