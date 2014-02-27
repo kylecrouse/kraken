@@ -8,7 +8,7 @@ module.exports = {
     facebook: {
         clientID: "1470094243205738",
         clientSecret: "891b20d6d28ec27800752c73b9fc9abb",
-        callbackURL: "http://localhost:3000/auth/facebook/callback"
+        callbackURL: "http://krakenapp.herokuapp.com/auth/facebook/callback"
     },
     twitter: {
         clientID: "CONSUMER_KEY",
