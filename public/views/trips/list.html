@@ -1,9 +1,21 @@
-<section data-ng-controller="TripsController" data-ng-init="find()">
-  <ul class="articles unstyled">
-    <li data-ng-repeat="trip in trips">
-      <h2><a data-ng-href="#!/trips/{{trip._id}}">{{trip.title}}</a></h2>
-      <p>{{trip.user.name}}</p>
-    </li>
-  </ul>
-  <h1 data-ng-hide="!trips || trips.length">No trips yet. <br> Why don't you <a href="/#!/trips/create">Create One</a>?</h1>
+<section data-ng-controller="TripsController" data-ng-init="find()" class="view">
+  <div class="header">
+    <h1>Trips</h1>
+    <a class="pull-right" href="/signup" data-ng-hide="global.authenticated"><span class="glyphicon glyphicon-user"></span></a>
+    <a class="pull-right" href="/signout" data-ng-show="global.authenticated"><span class="glyphicon glyphicon-user"></span></a>
+  </div>
+  <div class="content">
+    <ul class="list-view">
+      <li data-ng-repeat="trip in trips">
+        <a data-ng-href="#!/trips/{{trip._id}}">{{trip.title}} <span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+      </li>
+    </ul>
+    <div data-ng-hide="!trips || trips.length">
+      <p data-ng-show="global.user.facebook">Hello, {{global.user.facebook.first_name}}! You don't have any trips yet. <br> Why don't you <a href="/#!/trips/create">create one</a>?</p>
+      <p data-ng-hide="global.user.facebook">Hello! You don't have any trips yet. <br> Why don't you <a href="/#!/trips/create">create one</a>?</p>
+    </div>
+    <div class="footer">
+      <a class="btn btn-primary btn-block" data-ng-href="#!/trips/create">Create New Trip</a>
+    </div>
+  </div>
 </section>

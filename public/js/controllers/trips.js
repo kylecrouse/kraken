@@ -71,6 +71,15 @@ angular.module('mean.trips').controller('TripsController', ['$scope', '$routePar
             trip.venues = [];
         }
         trip.venues.push(venue);
+        $scope.search = null;
+        $scope.query = null;
+        $scope.update();
+    };
+
+    $scope.delete = function(venue) {
+        var venues = $scope.trip.venues;
+        var index = venues.indexOf(venue);
+        venues.splice(index, 1);
         $scope.update();
     };
 }]);

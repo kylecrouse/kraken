@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * Auth callback
  */
 exports.authCallback = function(req, res) {
-    res.redirect('/');
+    res.redirect('/#!/trips');
 };
 
 /**
@@ -64,7 +64,7 @@ exports.create = function(req, res, next) {
                     message = 'Username already exists';
                     break;
                 default:
-                    message = 'Please fill all the required fields';
+                    message = 'Please complete all the required fields.';
             }
 
             return res.render('users/signup', {

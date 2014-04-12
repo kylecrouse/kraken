@@ -1,50 +1,176 @@
-.navbar .nav>li>a.brand {
-    padding-left:20px;
-    margin-left:0
+body {
+    background: #f2f2f2;
+}
+
+.viewport {
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px #ccc;
+    border-radius: 4px;
+    height: 568px;
+    margin: 20px auto;
+    position: relative;
+    width: 320px;
+    overflow: hidden;
+}
+
+.header {
+    background: #f7f7f7;
+    border-bottom: 1px solid #e2e2e2;
+    color: #000;
+    left: 0;
+    max-height: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+.header h1 {
+    font-size: 20px;
+    line-height: 50px;
+    margin: 0;
+}
+.header a {
+    border: 2px solid #999;
+    border-radius: 50%;
+    color: #999;
+    font-size: 16px;
+    height: 36px;
+    line-height: 32px;
+    position: absolute;
+    text-align: center;
+    top: 7px;
+    width: 36px;
+}
+.header a.pull-left {
+    left: 12px;
+}
+.header a.pull-right {
+    right: 12px;
 }
 
 .content {
-    margin-top:70px;
-    width:100%
+    height: 568px;
+    padding: 50px 15px 95px;
+    overflow-y: auto;
 }
 
-footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:30px;
-    width:100%;
-    background:#ddd;
-    -webkit-box-shadow:0 8px 6px 6px black;
-    -moz-box-shadow:0 8px 6px 6px black;
-    box-shadow:0 8px 6px 6px black
+.footer {
+    background: #fff;
+    border-top: 1px solid #e2e2e2;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 15px;
+    position: absolute;
+    width: auto;
+    z-index: 10;
 }
 
-footer p {
-    padding:5px 0 12px 10px
-}
-
-.venues {
-    clear: left;
-    margin: 0;
+.list-view {
+    list-style: none;
     padding: 0;
 }
-.venues li {
-    color: #428bca;
-    border: 1px solid #f2f2f2;
+.list-view > li {
+    border-bottom: 1px solid #e2e2e2;
+    margin: 0 -15px;
+    padding: 10px 15px;
+}
+.list-view:not(:first-child) li:first-child {
+    border-top: 1px solid #e2e2e2;
+}
+.list-view a {
+    color: #000;
+    display: block;
+    margin: -10px -15px;
+    padding: 10px 15px;
+}
+.list-view a:hover {
+    background-color: #f7f7f7;
+    text-decoration: none;
+}
+.list-view > li > div {
+    position: relative;
+    -webkit-transition: 0.3s ease-out all;
+    transition: 0.3s ease-out all;
+}
+.list-view > li > .venue.ng-hide {
+    display: block !important;
+    left: -100px;
+}
+
+.actions ul {
+    float: right;
     list-style: none;
-    padding: 5px 10px;
+    margin: -10px -15px;
+    padding: 0;
+    position: relative;
+    text-align: right;
+    z-index: 1;
 }
-.venues li:first-child {
-    border-radius: 5px 5px 0 0;
+.actions li {
+    border: none !important;
 }
-.venues li:last-child {
-    border-radius: 0 0 5px 5px;
+.actions button {
+    background: #d9534f;
+    border: 0;
+    color: #fff;
+    padding: 10px 0;
+    width: 100px;
 }
-.venues li + li {
-    border-top: 0;
+
+.venue > div {
+    background: #fff;
+    margin: -10px -15px;
+    padding: 10px 15px;
+    position: relative;
+    z-index: 2;
 }
-.venues li:hover {
-    background-color: #f2f2f2;
-    cursor: pointer;
+
+.form {
+    margin: 15px 0;
+}
+.form .input-group-btn .btn {
+    border-left: none;
+    -webkit-transition: border-color ease-in-out .15s, color ease-in-out .15s;
+}
+.form input,
+.form input:focus {
+    box-shadow: none;
+}
+.form input:focus + .input-group-btn .btn {
+    border-color: #66afe9;
+    color: #428bca;
+}
+
+.alert {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-radius: 0;
+    margin: 15px -15px;
+}
+
+.welcome {
+    display: table;
+    height: 423px;
+    width: 100%;
+}
+.welcome .wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.glyphicon {
+    position: relative;
+    top: 2px;
+}
+
+.fixed-bottom {
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    margin: 0;
+    position: absolute;
+    width: auto;
+    z-index: 1;
 }

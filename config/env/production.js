@@ -3,7 +3,7 @@
 module.exports = {
     db: process.env.MONGOHQ_URL || null,
     app: {
-        name: "MEAN - A Modern Stack - Production"
+        name: "RIFF"
     },
     facebook: {
         clientID: "1470094243205738",
