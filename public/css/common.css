@@ -17,7 +17,8 @@
 
     .content {
         height: 568px;
-        padding: 50px 15px 95px;
+        padding-top: 50px;
+        padding-bottom: 95px;
         overflow-y: auto;
     }
 }
@@ -55,6 +56,10 @@
 }
 .header a.pull-right {
     right: 12px;
+}
+
+.content {
+    padding: 0 15px;
 }
 
 .footer {
